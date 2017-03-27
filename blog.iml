@@ -9,10 +9,19 @@
         <webroots>
           <root url="file://$MODULE_DIR$/src/main/webapp" relative="/" />
         </webroots>
+        <sourceRoots>
+          <root url="file://$MODULE_DIR$/src/main/resources" />
+        </sourceRoots>
       </configuration>
     </facet>
     <facet type="Spring" name="Spring">
-      <configuration />
+      <configuration>
+        <fileset id="fileset" name="Spring Application Context" removed="false">
+          <file>file://$MODULE_DIR$/src/main/resources/spring/dao.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/spring/service.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/config/springMVC.xml</file>
+        </fileset>
+      </configuration>
     </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_5" inherit-compiler-output="false">
@@ -52,7 +61,7 @@
     <orderEntry type="module-library">
       <library name="Maven: com.alibaba:jconsole:1.8.0">
         <CLASSES>
-          <root url="jar://D:/Programe Files/java1.8.0/jdk/jre/../lib/jconsole.jar!/" />
+          <root url="jar://D:/Program Files/Java/jdk1.8.0_121/jre/../lib/jconsole.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -61,7 +70,7 @@
     <orderEntry type="module-library">
       <library name="Maven: com.alibaba:tools:1.8.0">
         <CLASSES>
-          <root url="jar://D:/Programe Files/java1.8.0/jdk/jre/../lib/tools.jar!/" />
+          <root url="jar://D:/Program Files/Java/jdk1.8.0_121/jre/../lib/tools.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
