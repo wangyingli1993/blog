@@ -50,27 +50,28 @@
             </ul>
         </div>
         <div class="col-md-10 col-sm-9 col-xs-8 right">
-            <div class="right-inner" style="padding: 0;">
-                <form action="" class="form-inline">
-                    <div class="title form-group input-lg">
-                        <label for="title">标题</label>
-                        <input type="text" id="title" class="form-control"
-                               placeholder="请输入文章标题">
+            <div class="right-inner" style="padding: 0;overflow:hidden">
+                <form action="<%=request.getContextPath()%>/blog/save" id="blog-form"
+                      method="post">
+                    <div class="title form-inline" style="padding: 10px;display: flex">
+                        <input type="text" name="title" id="title" class="form-control"
+                               placeholder="请输入文章标题" style="flex: 1;margin-right: 10px;">
+                        <button id="btn-submit"  type="button" class="btn btn-primary">保存</button>
+                    </div>
+                    <div id="my-editormd">
+                        <textarea class="editormd-markdown-textarea"
+                                  name="contentMarkdown"></textarea>
+                        <!-- 第二个隐藏文本域，用来构造生成的HTML代码，方便表单POST提交，这里的name可以任意取，后台接受时以这个name键为准 -->
+                        <textarea class="editormd-html-textarea" name="contentHtml"></textarea>
                     </div>
                 </form>
-
-                <div id="my-editormd">
-                    <textarea class="editormd-markdown-textarea" name="my-editormd-markdown"></textarea>
-                    <!-- 第二个隐藏文本域，用来构造生成的HTML代码，方便表单POST提交，这里的name可以任意取，后台接受时以这个name键为准 -->
-                    <textarea class="editormd-html-textarea" name="content-html"></textarea>
-                </div>
             </div>
-
         </div>
     </div>
 </div>
 
-<script src="<%=request.getContextPath()%>/res/js/jquery-3.1.1.min.js" type="text/javascript"></script>
+<script src="<%=request.getContextPath()%>/res/js/jquery-3.1.1.min.js"
+        type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/res/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/res/editor-md/editormd.min.js"></script>
 <script type="text/javascript">
@@ -78,18 +79,17 @@
     $(function () {
         testEditor = editormd("my-editormd", {
             width: "100%",
-            height: 540,
-            markdown : "",
+            height: '500',
+            markdown: "",
             syncScrolling: "single",
             path: "<%=request.getContextPath()%>/res/editor-md/lib/",
             previewTheme: "dark",
-            saveHTMLToTextarea : true,
-            imageUpload : true,
-            imageFormats : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
-            imageUploadURL : "<%=request.getContextPath()%>/upload-img",
+            saveHTMLToTextarea: true,
+            imageUpload: true,
+            imageFormats: ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+            imageUploadURL: "<%=request.getContextPath()%>/upload-img",
             toolbarIcons: function () {
                 // Or return editormd.toolbarModes[name]; // full, simple, mini
-                // Using "||" set icons align right.
                 return ["undo", "redo", "|", "image", "code-block", "||", "watch", "fullscreen",
                     "preview"];
             }
@@ -102,7 +102,18 @@
              }
              */
         });
+
     });
+
+//    表单不要使用表单属性作为name或id名称，如：submit，length，method，否则将产生冲突
+    $("#btn-submit").click(function () {
+        var title = $("#title").val();
+        if(title == null || title == '') {
+            alert('标题不能为空！');
+            return false;
+        }
+        $('#blog-form').submit();
+    })
 </script>
 
 </body>

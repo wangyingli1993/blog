@@ -1,5 +1,4 @@
 @charset "utf-8";
-@charset "utf-8";
 body {
     font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei UI", "Microsoft YaHei", SimHei, "\5B8B\4F53", simsun, sans-serif;
     color: #666;
@@ -10,6 +9,7 @@ body {
     height: 50px;
     width: 100%;
     background-color: #EE5567;
+    z-index: 50;
 }
 
 .header .logout {
@@ -42,6 +42,7 @@ body {
     height: 100%;
     padding: 0;
     background-color: #283643;
+    z-index: 100;
 }
 
 .main-menu .inner {

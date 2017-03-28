@@ -22,12 +22,13 @@ CREATE TABLE blog (
   id          INT(11) PRIMARY KEY AUTO_INCREMENT COMMENT 'id',
   user_id     INT(11)      NOT NULL COMMENT '用户id',
   title       VARCHAR(100) NOT NULL COMMENT '标题',
-  content     TEXT COMMENT '正文',
+  content_html     TEXT COMMENT '正文html形式',
+  content_markdown     TEXT COMMENT '正文markdown形式',
   create_time DATETIME            DEFAULT NULL COMMENT '创建时间',
   publish_time DATETIME            DEFAULT NULL COMMENT '发布时间',
   state TINYINT DEFAULT 0 COMMENT '状态：发布1，未发布0',
   read_num INT(11) DEFAULT 0 COMMENT '阅读数',
-  FOREIGN KEY (id) REFERENCES user (id)
+  FOREIGN KEY (user_id) REFERENCES user (id)
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 DEFAULT CHARSET = utf8 COMMENT '博客';
 
 

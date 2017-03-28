@@ -40,12 +40,12 @@ public class UploadController {
         //判断目录是否存在
         File dirPath = new File(realPath);
         if (!dirPath.exists()) {
-            dirPath.mkdir();
+            dirPath.mkdirs();
         }
         String filePath = UUID.randomUUID().toString() + "." + extension;
         //最终文件上传路径
         String uploadPath = realPath + File.separator + filePath;
-        // 注意：url请求路径是/ ，不是win系统的\
+        // 注意：url请求路径是/ ，不是win系统的\，不能使用File.separator
         String returnUrl = request.getContextPath() + "/upload/" + dir + "/" + filePath;
         try {
             FileUtils.copyInputStreamToFile(attach.getInputStream(), new File(uploadPath));

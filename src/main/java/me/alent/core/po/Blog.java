@@ -12,10 +12,11 @@ public class Blog {
     private Integer id;
     private Integer userId;
     private String title;
-    private String content;
+    private String contentMarkdown;
+    private String contentHtml;
     private Date createTime;
     private Date publishTime;
-    private boolean state;
+    private Boolean state;
     private Integer readNum;
 
     public Integer getId() {
@@ -42,14 +43,6 @@ public class Blog {
         this.title = title;
     }
 
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
     public Date getCreateTime() {
         return createTime;
     }
@@ -62,7 +55,7 @@ public class Blog {
         this.publishTime = publishTime;
     }
 
-    public boolean isState() {
+    public Boolean isState() {
         return state;
     }
 
@@ -82,13 +75,30 @@ public class Blog {
         this.readNum = readNum;
     }
 
+    public String getContentMarkdown() {
+        return contentMarkdown;
+    }
+
+    public void setContentMarkdown(String contentMarkdown) {
+        this.contentMarkdown = contentMarkdown;
+    }
+
+    public String getContentHtml() {
+        return contentHtml;
+    }
+
+    public void setContentHtml(String contentHtml) {
+        this.contentHtml = contentHtml;
+    }
+
     @Override
     public String toString() {
         return "Blog{" +
                 "id=" + id +
                 ", userId=" + userId +
                 ", title='" + title + '\'' +
-                ", content='" + content + '\'' +
+                ", contentMarkdown='" + contentMarkdown + '\'' +
+                ", contentHtml='" + contentHtml + '\'' +
                 ", createTime=" + createTime +
                 ", publishTime=" + publishTime +
                 ", state=" + state +
