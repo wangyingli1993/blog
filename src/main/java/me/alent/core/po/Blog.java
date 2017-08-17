@@ -1,23 +1,39 @@
 package me.alent.core.po;
 
 import java.util.Date;
+import java.util.List;
 
 /**
- * 博客类
- * @author Alent
- * @since 21:05 2017/3/25
+ * Created by Alent on 2017/7/12.
  */
-
 public class Blog {
     private Integer id;
-    private Integer userId;
     private String title;
-    private String contentMarkdown;
-    private String contentHtml;
-    private Date createTime;
-    private Date publishTime;
-    private Boolean state;
-    private Integer readNum;
+    private String summary;
+    private Date releaseDate;
+    private Integer clickHit;
+    private Integer replyHit;
+    private String content;
+    private String keyWord;
+    private BlogType blogType;
+
+    private List<String> imgList;
+
+    public List<String> getImgList() {
+        return imgList;
+    }
+
+    public void setImgList(List<String> imgList) {
+        this.imgList = imgList;
+    }
+
+    public BlogType getBlogType() {
+        return blogType;
+    }
+
+    public void setBlogType(BlogType blogType) {
+        this.blogType = blogType;
+    }
 
     public Integer getId() {
         return id;
@@ -25,14 +41,6 @@ public class Blog {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Integer userId) {
-        this.userId = userId;
     }
 
     public String getTitle() {
@@ -43,66 +51,51 @@ public class Blog {
         this.title = title;
     }
 
-    public Date getCreateTime() {
-        return createTime;
+    public String getSummary() {
+        return summary;
     }
 
-    public Date getPublishTime() {
-        return publishTime;
+    public void setSummary(String summary) {
+        this.summary = summary;
     }
 
-    public void setPublishTime(Date publishTime) {
-        this.publishTime = publishTime;
+    public Date getReleaseDate() {
+        return releaseDate;
     }
 
-    public Boolean isState() {
-        return state;
+    public void setReleaseDate(Date releaseDate) {
+        this.releaseDate = releaseDate;
     }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+    public Integer getClickHit() {
+        return clickHit;
     }
 
-    public void setState(boolean state) {
-        this.state = state;
+    public void setClickHit(Integer clickHit) {
+        this.clickHit = clickHit;
     }
 
-    public Integer getReadNum() {
-        return readNum;
+    public Integer getReplyHit() {
+        return replyHit;
     }
 
-    public void setReadNum(Integer readNum) {
-        this.readNum = readNum;
+    public void setReplyHit(Integer replyHit) {
+        this.replyHit = replyHit;
     }
 
-    public String getContentMarkdown() {
-        return contentMarkdown;
+    public String getContent() {
+        return content;
     }
 
-    public void setContentMarkdown(String contentMarkdown) {
-        this.contentMarkdown = contentMarkdown;
+    public void setContent(String content) {
+        this.content = content;
     }
 
-    public String getContentHtml() {
-        return contentHtml;
+    public String getKeyWord() {
+        return keyWord;
     }
 
-    public void setContentHtml(String contentHtml) {
-        this.contentHtml = contentHtml;
-    }
-
-    @Override
-    public String toString() {
-        return "Blog{" +
-                "id=" + id +
-                ", userId=" + userId +
-                ", title='" + title + '\'' +
-                ", contentMarkdown='" + contentMarkdown + '\'' +
-                ", contentHtml='" + contentHtml + '\'' +
-                ", createTime=" + createTime +
-                ", publishTime=" + publishTime +
-                ", state=" + state +
-                ", readNum=" + readNum +
-                '}';
+    public void setKeyWord(String keyWord) {
+        this.keyWord = keyWord;
     }
 }

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="me.alent.core.mapper.LinkMapper">
+    <insert id="saveLink" parameterType="Link">
+        INSERT INTO t_link
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="linkName!=null and linkName!=''">
+                linkName,
+            </if>
+            <if test="linkUrl!=null and linkUrl!=''">
+                linkUrl,
+            </if>
+            <if test="orderNum!=null">
+                orderNum,
+            </if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="linkName!=null and linkName!=''">
+                linkName,
+            </if>
+            <if test="linkUrl!=null and linkUrl!=''">
+                linkUrl,
+            </if>
+            <if test="orderNum!=null">
+                orderNum,
+            </if>
+        </trim>
+    </insert>
+    <update id="updateLinkById" parameterType="Link">
+        UPDATE t_link
+        <set>
+            <if test="linkName!=null and linkName!=''">
+                linkName=#{linkName},
+            </if>
+            <if test="linkUrl!=null and linkUrl!=''">
+                linkUrl=#{linkUrl},
+            </if>
+            <if test="orderNum!=null">
+                orderNum=#{orderNum},
+            </if>
+        </set>
+        WHERE id = #{id}
+    </update>
+    <delete id="deleteLinkByIds">
+        DELETE FROM t_link
+        WHERE id IN
+        <foreach collection="array" open="(" close=")" separator="," item="id">
+            #{id}
+        </foreach>
+    </delete>
+
+    <select id="listLinkByMap" resultType="me.alent.core.po.Link">
+        SELECT * FROM t_link
+        <if test="start!=null and pageSize!=null">
+            limit #{start}, #{pageSize}
+        </if>
+    </select>
+    <select id="getLinkTotal" resultType="java.lang.Long">
+        SELECT count(*) FROM t_link
+    </select>
+    <select id="listLink" resultType="me.alent.core.po.Link">
+      SELECT * FROM t_link ORDER BY orderNum
+    </select>
+</mapper>

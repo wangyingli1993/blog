@@ -11,6 +11,9 @@
 		<!--<setting name="lazyLoadingEnabled" value="false" />-->
 		<!--<setting name="autoMappingBehavior" value="FULL"/>-->
 	<!--</settings>-->
+	<settings>
+		<setting name="logImpl" value="LOG4J" />
+	</settings>
 
 	<!--批量定义类的别名-->
 	<typeAliases>
